@@ -24,18 +24,7 @@ still often needed, especially in communication handling.
 In addition to the normal RAM memory, computers often also have a swap
 partition. This is an area on the "slow" memory, which can be used to
 temporarily expand the working memory in case the RAM is full. By default the
-RPi only has 100MB, but we can increase this to 2048MB. Please follow the
-procedure below to do so:
-
-1. Stop the swap: `$ sudo dphys-swapfile swapoff`
-
-2. Open the swap configuration file: `$ sudo nano /etc/dphys-swapfile`
-
-3. Set `CONF_SWAPSIZE = 2048`
-
-4. Initialize the swap: `sudo dphys-swapfile setup`
-
-5. Start the swap: `sudo dphys-swapfile swapon`
+RPi has 2048MB of swap. Verify this by running `htop` and look for the Swp-row. 
 
 #### TASK A
 
