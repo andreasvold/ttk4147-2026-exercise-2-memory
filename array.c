@@ -89,9 +89,7 @@ long array_length(Array a)
 }
 
 void array_reserve(Array *a, long capacity)
-{
-    // TODO: your code here
-}
+{}
 
 // Modifiers
 void array_insertBack(Array *a, long stuff)
