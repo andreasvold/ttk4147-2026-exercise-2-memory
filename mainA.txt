@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    // task A
+
+    long xy_size    = 1000*1000*500;       // 4 GB (sizeof(long) = 8 bytes)
+    long x_dim      = 1000;
+    long y_dim      = xy_size/x_dim;   
+     
+    long** matrix   = malloc(y_dim*sizeof(long*));
+
+
+    for(long y = 0; y < y_dim; y++){
+        matrix[y] = malloc(x_dim*sizeof(long));
+        // malloc doesnt allocate physical memory right away. bc of demand paging. It gives space in the virtual memory, 
+        //but only when actually accessing the pointers the os allcates physical memory 
+        //(page fault happens when first accessing the memory, then os allocates physical memory)
+        // Initialization to zero -> zero page is used
+        memset(matrix[y], 0, x_dim*sizeof(long));
+
+    }
+
+    printf("Allocation complete (press any key to continue...)\n");
+    getchar();
+
+    return 0;
+}

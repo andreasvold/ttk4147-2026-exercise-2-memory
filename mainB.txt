@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include "array.h"
+
+int main() {
+    // task B
+    // added -g -fsanitize=address
+
+    Array arr = array_new(10);
+
+    for(int i  = 1; i < 10; i++){
+        array_insertBack(&arr,i);
+    }
+    array_print(arr);
+    getchar();
+
+    return 0;
+}

@@ -89,12 +89,24 @@ long array_length(Array a)
 }
 
 void array_reserve(Array *a, long capacity)
-{
-    // TODO: your code here
+{   
+    long new_cap = a->capacity+capacity;
+    long *new_data = malloc(new_cap*sizeof(long));
+
+    for(int i = 0; i < a->capacity;i++){
+        new_data[i] = a->data[i];
+    }
+    free(a->data);
+    a->data = new_data;
+    a->capacity = new_cap;
 }
 
 // Modifiers
 void array_insertBack(Array *a, long stuff)
 {
-    // TODO: your code here
+    if(array_length(*a) >= a->capacity){
+        array_reserve(a,10);
+    }
+    a->data[a->back] = stuff;
+    a->back++;
 }
