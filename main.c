@@ -1,18 +1,15 @@
 #include <stdio.h>
+#include "array.h"
 
 int main() {
+    // task C
 
-    long xy_size    = 1000*1000*500;       // 4 GB (sizeof(long) = 8 bytes)
-    long x_dim      = 100;
-    long y_dim      = xy_size/x_dim;   
-     
-    long** matrix   = malloc(y_dim*sizeof(long*));
+    Array arr = array_new(10);
 
-    for(long y = 0; y < y_dim; y++){
-        matrix[y] = malloc(x_dim*sizeof(long));
+    for(int i  = 1; i < 19; i++){
+        array_insertBack(&arr,i);
     }
-
-    printf("Allocation complete (press any key to continue...)\n");
+    array_print(arr);
     getchar();
 
     return 0;
